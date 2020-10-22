@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}Login{% endblock  %}
+
+{% block content %}
+    <small>{% if error %}{{error}}{% endif %}</small>
+    <form method="post" action="{% url 'login' %}">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="hidden" name="text" value="{{next}}"/>
+        <input type="submit" value="se connecter"/>
+    </form>
+{% endblock  %}
